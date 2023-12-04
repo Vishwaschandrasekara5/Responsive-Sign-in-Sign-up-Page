@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup and signin page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/eb7b7430e8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="formbox">
+            <h1 id="title" >Sign Up</h1>
+
+            <form action="">
+                <div class="input-group">
+                    <div class="input-field" id="inputfield">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="nm" placeholder="Name">
+
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="em" placeholder="Email">
+
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="pass" placeholder="Password">
+
+                    </div>
+
+                    <p>Forgot password <a href="#">click here</a> </p>
+                </div>
+
+                <div class="btn-field">
+                    <button id="signupbtn" type="button">Sign up</button>
+                    <button id="signinbtn" type="button" class="disable" >Sign in</button>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        let signupBtn = document.getElementById("signupbtn");
+        let signinBtn = document.getElementById("signinbtn");
+        let namefield = document.getElementById("inputfield");
+        let title = document.getElementById("title");
+    
+        let name = document.getElementById("nm");
+    
+        signinBtn.onclick = function () {
+            namefield.style.maxHeight = "0";
+            title.innerHTML = "Sign In";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+    
+            const Email = ["vishwa@gmail.com", "gayanga@gmail.com", "achira@gmail.com"];
+            const Password = ["vi123", "ga123", "ac123"];
+            let email = document.getElementById("em").value;
+            let password = document.getElementById("pass").value;
+    
+            let found = false;
+
+            for (let i = 0; i < Email.length; i++) {
+              if (email === Email[i]) {
+               found = true;
+               
+               if (password === Password[i]) {
+                  alert("Login successful.");
+                } else {
+                    alert("Password is incorrect.");
+                }
+            } 
+            // else {
+            //     alert("email is incorrect.");
+            //  }
+        }
+    
+    }
+    
+        signupBtn.onclick = function () {
+            namefield.style.maxHeight = "60px";
+            title.innerHTML = "Sign up";
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
+        }
+    </script>
+    
+    
+    
+</body>
+</html>
